@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: agency-service-app
+  labels:
+    app: agency-service-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app : agency-service-app
+  template:
+    metadata:
+      labels:
+        app: agency-service-app
+    spec:
+      containers:
+      - name: agency-service-app
+        image: andreeaelenabodea/agency-service:0.0.1
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 9010
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name:  agency-service-svc
+spec:
+  selector:
+    app:  agency-service-app
+  ports:
+  - port:  80
+    targetPort:  9010

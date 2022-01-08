@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.cloud.computing</groupId>
 	<artifactId>agency-service</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>agency-service</name>
 	<description>agency-service</description>
 	<properties>

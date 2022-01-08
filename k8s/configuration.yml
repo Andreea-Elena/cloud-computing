@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: configuration-app
+  labels:
+    app: configuration-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app : configuration-app
+  template:
+    metadata:
+      labels:
+        app: configuration-app
+    spec:
+      containers:
+      - name: configuration-app
+        image: andreeaelenabodea/configuration:0.0.1
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 9296
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name:  configuration-svc
+spec:
+  selector:
+    app:  configuration-app
+  ports:
+  - port:  80
+    targetPort:  9296

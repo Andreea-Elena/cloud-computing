@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: location-service-app
+  labels:
+    app: location-service-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app : location-service-app
+  template:
+    metadata:
+      labels:
+        app: location-service-app
+    spec:
+      containers:
+      - name: location-service-app
+        image: andreeaelenabodea/location-service:0.0.1
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 9030
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name:  location-service-svc
+spec:
+  selector:
+    app:  location-service-app
+  ports:
+  - port:  80
+    targetPort:  9030

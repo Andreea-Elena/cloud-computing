@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  agency-service:
+    image: andreeaelenabodea/agency-service${DOCKER_TAG}
+    build: 
+      context: agency-service
+  employee-service:
+    image: andreeaelenabodea/employee-service${DOCKER_TAG}
+    build: 
+      context: employee-service
+  location-service:
+    image: andreeaelenabodea/location-service${DOCKER_TAG}
+    build: 
+      context: location-service
+  api-gateway:
+    image: andreeaelenabodea/api-gateway${DOCKER_TAG}
+    build: 
+      context: api-gateway
+  service-registry:
+    image: andreeaelenabodea/service-registry${DOCKER_TAG}
+    build: 
+      context: service-registry
+  configuration:
+    image: andreeaelenabodea/configuration${DOCKER_TAG}
+    build: 
+      context: configuration

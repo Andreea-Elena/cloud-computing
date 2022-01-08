@@ -1,0 +1,10 @@
+$ENV:DOCKER_TAG=":0.0.1";docker-compose build --force-rm --pull
+
+docker login
+
+docker push andreeaelenabodea/agency-service:0.0.1
+docker push andreeaelenabodea/employee-service:0.0.1
+docker push andreeaelenabodea/location-service:0.0.1
+docker push andreeaelenabodea/api-gateway:0.0.1
+docker push andreeaelenabodea/service-registry:0.0.1
+docker push andreeaelenabodea/configuration:0.0.1

@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-gateway-app
+  labels:
+    app: api-gateway-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app : api-gateway-app
+  template:
+    metadata:
+      labels:
+        app: api-gateway-app
+    spec:
+      containers:
+      - name: api-gateway-app
+        image: andreeaelenabodea/api-gateway:0.0.1
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 9191
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name:  api-gateway-svc
+spec:
+  type: LoadBalancer
+  selector:
+    app:  api-gateway-app
+  ports:
+  - port:  80
+    targetPort:  9191
+    protocol: TCP
