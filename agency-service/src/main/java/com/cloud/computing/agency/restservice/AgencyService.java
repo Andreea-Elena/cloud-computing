@@ -25,7 +25,7 @@ public class AgencyService {
         Agency agency = agencyRepository.findByAgencyId(agencyId);
         responseTemplate.setAgency(agency);
 
-        Location location = restTemplate.getForObject("http://localhost:9030/locations/" + agency.getLocationId(), Location.class);
+        Location location = restTemplate.getForObject("http://LOCATION-SERVICE/locations/" + agency.getLocationId(), Location.class);
         responseTemplate.setLocation(location);
 
         return responseTemplate;
@@ -43,7 +43,7 @@ public class AgencyService {
         Agency agency = agencyRepository.findByAgencyId(agencyId);
         responseTemplate.setAgency(agency);
 
-        Location location = restTemplate.getForObject("http://localhost:9030/locations/" + agency.getLocationId(), Location.class);
+        Location location = restTemplate.getForObject("http://LOCATION-SERVICE/locations/" + agency.getLocationId(), Location.class);
         responseTemplate.setLocation(location);
 
         AgencyComplete agencyComplete = new AgencyComplete(
