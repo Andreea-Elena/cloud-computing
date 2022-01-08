@@ -3,3 +3,9 @@ server:
 spring:
   application:
     name: CONFIGURATION
+  cloud:
+    config:
+      server:
+        git:
+          uri:
+            clone-on-start: true
