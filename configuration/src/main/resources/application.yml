@@ -7,5 +7,5 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/Andreea-Elena/cloud-computing/blob/main/configuration/src/main/resources
-            clone-on-start: true
+          uri: https://github.com/Andreea-Elena/cloud-computing/tree/main/configuration/src/main/resources
+          clone-on-start: true
